@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="practicePU">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>miu.edu.cs544.sujan.practice.Person</class>
+        <class>miu.edu.cs544.sujan.practice.Vehicle</class>
+        <class>miu.edu.cs544.sujan.practice.Car</class>
+        <class>miu.edu.cs544.sujan.practice.Factory</class>
+        <class>miu.edu.cs544.sujan.practice.Van</class>
+        <class>miu.edu.cs544.sujan.practice.Insurance</class>
+        <class>miu.edu.cs544.sujan.practice.Address</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cs544db"/>
+            <property name="javax.persistence.jdbc.user" value="ea"/>
+            <property name="javax.persistence.jdbc.password" value="cs544"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
