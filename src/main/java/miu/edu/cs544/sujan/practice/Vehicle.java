@@ -1,12 +1,9 @@
 package miu.edu.cs544.sujan.practice;
 
-import org.eclipse.persistence.jpa.config.Cascade;
-
 import javax.persistence.*;
 
 @Entity
-@NamedNativeQuery(name = "findAllCars", query = "select * from vehicle as v where v.dtype='car'")
-@Inheritance(strategy= InheritanceType.JOINED)
+@NamedNativeQuery(name = "findAllCars", query = "select * from vehicle as v where v.dtype='car'", resultClass = Vehicle.class)
 public class Vehicle {
     @Id
     @GeneratedValue
@@ -37,11 +34,7 @@ public class Vehicle {
         this.factory = factory;
     }
 
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "id=" + id +
-                ", year=" + year +
-                '}';
+    public int getYear() {
+        return year;
     }
 }

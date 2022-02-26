@@ -17,4 +17,12 @@ public class Van extends Vehicle {
     public Van(VehicleColor color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Van{" +
+                "color=" + color +
+                ", year=" + getYear() +
+                '}';
+    }
 }

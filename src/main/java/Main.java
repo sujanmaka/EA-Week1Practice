@@ -5,7 +5,6 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.awt.Color;
 import java.util.Arrays;
 
 public class Main {
@@ -17,7 +16,7 @@ public class Main {
         /*
         * save dummy data into DB
         * */
-        saveDataToDB(em);
+//        saveDataToDB(em);
 
         String query = "select f from Factory as f where f.year > 1999 and f.year=:year";
         TypedQuery<Factory> query1 = em.createQuery(query, Factory.class);
@@ -28,7 +27,7 @@ public class Main {
         TypedQuery<Person> query3 = em.createQuery(query2, Person.class);
         System.out.println(query3.getResultList());
 
-        TypedQuery<Person> query4 = em.createNamedQuery("findVehiclesOwnByAPerson", Person.class);
+        TypedQuery<Vehicle> query4 = em.createNamedQuery("findVehiclesOwnByAPerson", Vehicle.class);
         query4.setParameter("name", "Jack");
         System.out.println(query4.getResultList());
 

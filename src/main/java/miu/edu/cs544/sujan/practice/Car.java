@@ -21,8 +21,8 @@ public class Car extends Vehicle{
     @Override
     public String toString() {
         return "Car{" +
-                "id=" + id +
-                ", millage=" + millage +
+                "millage=" + millage +
+                ",year=" + getYear() +
                 '}';
     }
 }
