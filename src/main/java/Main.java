@@ -47,6 +47,21 @@ public class Main {
         TypedQuery<Car> vehicleTypedQuery = em.createQuery(criQuery);
         System.out.println(vehicleTypedQuery.getResultList());
 
+        //solution with Ale
+        CriteriaBuilder criBuilder1 = em.getCriteriaBuilder();
+        CriteriaQuery<Vehicle> criQuery1 = criBuilder1.createQuery(Vehicle.class);
+        Root<Vehicle> rootVehicle = criQuery1.from(Vehicle.class);
+        criQuery.select(rootVehicle.get("person"));
+        Root<Car> car = criBuilder1.treat(rootVehicle, Car.class);
+        Predicate millagePredicate1 = criBuilder1.greaterThan(car.get("millage"), 100000);
+        Predicate factoryPredicate1 = criBuilder1.equal(rootVehicle.get("factory").get("insurance")
+                .get("address")
+                .get("state"), "CA");
+        Predicate andPredicate1 = criBuilder.and(millagePredicate1, factoryPredicate1);
+        criQuery.where(andPredicate1);
+        TypedQuery<Vehicle> personTypedQuery = em.createQuery(criQuery1);
+        System.out.println(personTypedQuery.getResultList());
+
 
 
         tx.begin();
